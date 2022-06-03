@@ -21,7 +21,7 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
-const BasicForms = () => {
+const EditarMedicamentos = () => {
 
   return (
     <>
@@ -29,7 +29,7 @@ const BasicForms = () => {
         <CCol xs="12" md="12">
           <CCard>
             <CCardHeader>
-              Basic Form
+              Editar Medicamentos
               <small> Elements</small>
             </CCardHeader>
             <CCardBody>
@@ -329,4 +329,4 @@ const BasicForms = () => {
   )
 }
 
-export default BasicForms
+export default EditarMedicamentos

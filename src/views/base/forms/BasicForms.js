@@ -29,35 +29,58 @@ const BasicForms = () => {
         <CCol xs="12" md="12">
           <CCard>
             <CCardHeader>
-              Basic Form
-              <small> Elements</small>
+              Cadastro de Medicamentos
             </CCardHeader>
+
             <CCardBody>
               <CForm action="" method="post" encType="multipart/form-data" className="form-horizontal">
                 <CFormGroup row>
                   <CCol md="3">
                     <CLabel>Static</CLabel>
                   </CCol>
+
                   <CCol xs="12" md="9">
-                    <p className="form-control-static">Username</p>
+                    <p className="form-control-static">Username</p> 
                   </CCol>
                 </CFormGroup>
+
                 <CFormGroup row>
                   <CCol md="3">
-                    <CLabel htmlFor="text-input">Text Input</CLabel>
+                    <CLabel htmlFor="text-input">Nome do Medicamento</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="Text" />
-                    <CFormText>This is a help text</CFormText>
+                    <CInput id="text-input" name="text-input" placeholder="Insira o nome do medicamento" />
+                    <CFormText>Este campo deve ser preenchido</CFormText>
                   </CCol>
                 </CFormGroup>
+
+                <CFormGroup row>
+                  <CCol md="3">
+                    <CLabel htmlFor="text-input">Classe Terapêutica</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9">
+                    <CInput id="text-input" name="text-input" placeholder="Insira o nome da classe terapêutica" />
+                    <CFormText>Este campo deve ser preenchido</CFormText>
+                  </CCol>
+                </CFormGroup>
+
+                <CFormGroup row>
+                  <CCol md="3">
+                    <CLabel htmlFor="text-input">Laboratório</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9">
+                    <CInput id="text-input" name="text-input" placeholder="Insira o nome do laboratório" />
+                    <CFormText>Este campo deve ser preenchido</CFormText>
+                  </CCol>
+                </CFormGroup>
+
                 <CFormGroup row>
                   <CCol md="3">
                     <CLabel htmlFor="email-input">Email Input</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                     <CInput type="email" id="email-input" name="email-input" placeholder="Enter Email" autoComplete="email"/>
-                    <CFormText className="help-block">Please enter your email</CFormText>
+                    <CFormText className="help-block">Este campo deve ser preenchido</CFormText>
                   </CCol>
                 </CFormGroup>
                 <CFormGroup row>

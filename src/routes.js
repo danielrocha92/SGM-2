@@ -24,6 +24,14 @@ const BrandButtons = React.lazy(() => import('./views/buttons/brand-buttons/Bran
 const ButtonDropdowns = React.lazy(() => import('./views/buttons/button-dropdowns/ButtonDropdowns'));
 const ButtonGroups = React.lazy(() => import('./views/buttons/button-groups/ButtonGroups'));
 const Buttons = React.lazy(() => import('./views/buttons/buttons/Buttons'));
+
+//Rotas Medicamentos
+const Medicines = React.lazy(() => import('./views/medicines/medicines/Medicines'));
+const MedicinesAdd = React.lazy(() => import('./views/medicines/medicines-add/MedicinesAdd'));
+const MedicinesDiscard = React.lazy(() => import('./views/medicines/medicines-discard/MedicinesDiscard'));
+const MedicinesEdit = React.lazy(() => import('./views/medicines/medicines-edit/MedicinesEdit'));
+
+
 const Charts = React.lazy(() => import('./views/charts/Charts'));
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'));
 const CoreUIIcons = React.lazy(() => import('./views/icons/coreui-icons/CoreUIIcons'));
@@ -62,6 +70,15 @@ const routes = [
   { path: '/base/tabs', name: 'Tabs', component: Tabs },
   { path: '/base/tooltips', name: 'Tooltips', component: Tooltips },
   { path: '/buttons', name: 'Buttons', component: Buttons, exact: true },
+  
+  //Rotas Medicamentos
+  { path: '/medicines', name: 'Medicines', component: Medicines, exact: true },
+  { path: '/medicines/medicines', name: 'Medicines', component: Medicines },
+  { path: '/medicines/medicines-add', name: 'MedicinesAdd', component: MedicinesAdd },
+  { path: '/medicines/medicines-discard', name: 'MedicinesDiscard', component: MedicinesDiscard },
+  { path: '/medicines/medicines-edit', name: 'MedicinesEdit', component: MedicinesEdit },
+
+  //Rotas Botões
   { path: '/buttons/buttons', name: 'Buttons', component: Buttons },
   { path: '/buttons/button-dropdowns', name: 'Dropdowns', component: ButtonDropdowns },
   { path: '/buttons/button-groups', name: 'Button Groups', component: ButtonGroups },

@@ -27,23 +27,23 @@ const _nav =  [
     _children: [
       {
         _tag: 'CSidebarNavItem',
+        name: 'Medicamentos',
+        to: '/medicines/medicines',
+      },
+      {
+        _tag: 'CSidebarNavItem',
         name: 'Adicionar Medicamento',
-        to: '/base/addMedicine',
+        to: '/medicines/medicines-add',
       },
       {
         _tag: 'CSidebarNavItem',
         name: 'Editar Medicamentos',
-        to: '/base/editMedicine',
+        to: '/medicines/medicines-edit',
       },
       {
         _tag: 'CSidebarNavItem',
         name: 'Solicitar Descarte',
-        to: '/base/discard',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Dar Entrada em Medicamentos',
-        to: '/base/medicineIn',
+        to: '/medicines/medicines-discard',
       },
       {
         _tag: 'CSidebarNavItem',

@@ -16,6 +16,12 @@ const _nav =  [
     }
   },
   {
+    _tag: 'CSidebarNavItem',
+    name: 'Avisos',
+    to: '/wall',
+    icon: 'cil-check',
+  },
+  {
     _tag: 'CSidebarNavTitle',
     _children: ['Produtos']
   },

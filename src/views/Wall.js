@@ -5,20 +5,28 @@ import {
     CCardBody, 
     CCardHeader, 
     CCol, 
+    CDataTable, 
     CRow 
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 
-import useApi from '../services/api';
+//import useApi from '../services/api';
 
 export default () => {
-    const api = useApi();
+    //const api = useApi();
 
-    const [loading, setLoading] = useState(true);
+    //const [loading, setLoading] = useState(true);
     const [list, setList] = useState([]);
 
+    const fields = [
+        {label: "Título", key: 'title'},
+        {label: "Data de criação", key: 'datecreated'},
+        {label: "Ações", key: 'actions'}
 
-    useEffect(() => {
+    ]
+
+
+    /*useEffect(() => {
         getList();
     }), [];
 
@@ -31,7 +39,7 @@ export default () => {
         } else {
             alert(result.error);
         }
-    }
+    }*/
     
     return(
         <CRow>
@@ -45,6 +53,14 @@ export default () => {
                         </CButton>
                     </CCardHeader>
                     <CCardBody>
+                        <CDataTable 
+                            items={list}
+                            fields={fields} 
+                            //loading={loading}
+                            noItemsViewSlot=" "
+                        
+                        />
+                        
                         ...
                     </CCardBody>
                 </CCard>

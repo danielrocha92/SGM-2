@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+//import { useHistory } from 'react-router-dom'
 
 import {
+  //CAlert,
   CButton,
   CCard,
   CCardBody,
@@ -19,13 +21,27 @@ import CIcon from '@coreui/icons-react'
 //import useApi from ...
 
 const Login = () => {
+  //const api = useApi();
+  //const history = useHistory();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  //const [error, setError] = useState('');
+  //const [loading, setLoading] = useState(false);
 
   /*const handleLoginButton = async () => {
     if(email && password) {
-      const result = await api
+      setLoading(true);
+      const result = await api.login(email, password);
+      setLoading(false);
+      if(result.erro === ') {
+        localStorage.setItem('token', result.token);
+        history.push('/');
+      } else {
+        setError(result.error);
+      }
+    } else {
+      setError("Digite os dados");
     }
   }*/
 
@@ -40,6 +56,8 @@ const Login = () => {
                   <CForm>
                     <h1>Login</h1>
                     <p className="text-muted">Digite seus dados de acesso</p>
+
+                    {/*error !== '' && <CAlert color="danger">{error}</CAlert>*/}
 
                     <CInputGroup className="mb-3">
                       <CInputGroupPrepend>
@@ -68,6 +86,7 @@ const Login = () => {
                         autoComplete="current-password" 
                         value={password} 
                         onChange={e=>setPassword(e.target.value)} 
+                        //disabled={loading}
                       />
                     </CInputGroup>
 
@@ -77,8 +96,9 @@ const Login = () => {
                           color="primary" 
                           className="px-4"
                           //onClick={handleLoginButton}
+                          //dibled={loading}
                         >
-                          Entrar
+                          {/*looading ? 'Carregando' : 'Entrar'*/}Entrar
                         </CButton>
                       </CCol>
                     </CRow>

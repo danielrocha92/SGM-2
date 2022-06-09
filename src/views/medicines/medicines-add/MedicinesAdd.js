@@ -56,16 +56,6 @@ const MedicinesAdd = () => {
 
                 <CFormGroup row>
                   <CCol md="3">
-                    <CLabel htmlFor="text-input">Classe Terapêutica</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="Insira o nome da classe terapêutica" />
-                    <CFormText>Este campo deve ser preenchido</CFormText>
-                  </CCol>
-                </CFormGroup>
-
-                <CFormGroup row>
-                  <CCol md="3">
                     <CLabel htmlFor="text-input">Laboratório</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
@@ -104,6 +94,43 @@ const MedicinesAdd = () => {
                   </CCol>
                 </CFormGroup>
 
+                
+                <CFormGroup row>
+                  <CCol md="3">
+                    <CLabel htmlFor="date-input">Data de Validade</CLabel>
+                  </CCol>
+                  <CCol xs="3" md="4">
+                  <CCol xs="12" md="9">
+                    <p className="form-control-static">Data de Fabricação</p> 
+                  </CCol>
+                    <CInput type="date" id="date-input" name="date-input" placeholder="date-fab" />
+                    </CCol>
+                     <CCol xs="3" md="4">
+                     <CCol xs="12" md="9">
+                    <p className="form-control-static">Data de Validade</p> 
+                  </CCol>
+                    <CInput type="date" id="date-input" name="date-input" placeholder="date-val" />
+                  </CCol>
+                </CFormGroup>
+
+                <CFormGroup row>
+                  <CCol md="3">
+                    <CLabel htmlFor="textarea-input">Lote</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9">
+                    <CTextarea 
+                      name="textarea-input" 
+                      id="textarea-input" 
+                      rows="2"
+                      placeholder="Content..." 
+                    />
+                  </CCol>
+                </CFormGroup>
+
+
+
+
+
                 <CFormGroup row>
                   <CCol md="3">
                     <CLabel htmlFor="email-input">Email Input</CLabel>
@@ -122,6 +149,7 @@ const MedicinesAdd = () => {
                     <CFormText className="help-block">Please enter a complex password</CFormText>
                   </CCol>
                 </CFormGroup>
+
                 <CFormGroup row>
                   <CCol md="3">
                     <CLabel htmlFor="date-input">Date Input</CLabel>
@@ -130,6 +158,7 @@ const MedicinesAdd = () => {
                     <CInput type="date" id="date-input" name="date-input" placeholder="date" />
                   </CCol>
                 </CFormGroup>
+
                 <CFormGroup row>
                   <CCol md="3">
                     <CLabel htmlFor="disabled-input">Disabled Input</CLabel>
@@ -151,6 +180,7 @@ const MedicinesAdd = () => {
                     />
                   </CCol>
                 </CFormGroup>
+
                 <CFormGroup row>
                   <CCol md="3">
                     <CLabel htmlFor="select">Select</CLabel>

@@ -2,6 +2,7 @@ import React from 'react';
 
 const Dashboard = React.lazy(() => import('./views/Dashboard'));
 const Logout = React.lazy(() => import('./views/Logout'));
+const Wall = React.lazy(() => import('./views/Wall'));
 
 //Rotas Medicamentos
 const Medicines = React.lazy(() => import('./views/medicines/medicines/Medicines'));
@@ -13,6 +14,7 @@ const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/logout', name: 'Logout', component: Logout },
+  { path: '/wall', name: 'Wall', component: Wall },
 
   //Rotas Medicamentos
   { path: '/medicines', name: 'Medicines', component: Medicines, exact: true },

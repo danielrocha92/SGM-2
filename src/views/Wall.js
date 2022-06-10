@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
     CButton,
+    CButtonGroup,
     CCard, 
     CCardBody, 
     CCardHeader, 
@@ -20,8 +21,8 @@ export default () => {
 
     const fields = [
         {label: "Título", key: 'title'},
-        {label: "Data de criação", key: 'datecreated'},
-        {label: "Ações", key: 'actions'}
+        {label: "Data de criação", key: 'datecreated', _style:{width:'200px'}},
+        {label: "Ações", key: 'actions', _style:{width:'1px'}}
 
     ]
 
@@ -58,7 +59,20 @@ export default () => {
                             fields={fields} 
                             //loading={loading}
                             noItemsViewSlot=" "
-                        
+                            hover
+                            bordered
+                            pagination
+                            itemPerPage={5}
+                            scopedSlots={{
+                                'actions': (item, index) => (
+                                    <td>
+                                        <CButtonGroup>
+                                            <CButton color="info">Editar</CButton>
+                                            <CButton color="danger">Excluir</CButton>
+                                            </CButtonGroup>
+                                    </td>
+                                )
+                            }}
                         />
                         
                         ...

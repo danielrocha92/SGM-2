@@ -18,7 +18,7 @@ import {
     CInput
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
-import { applyMiddleware } from 'redux';
+import { applyMiddleWare } from 'redux';
 
 //import useApi from '../services/api';
 
@@ -28,6 +28,7 @@ export default () => {
     //const [loading, setLoading] = useState(true);
     const [list, setList] = useState([]);
     const [sholModal, setShowModal] = useState(false);
+    const [modalLoading, setModalLoading] = useState(false);
     const [modalTitleField, setModalTitleField] = useState('');
     const [modalBodyField, setModalBodyField] = useState('');
     const [modalId, setModalId] = useState();
@@ -68,10 +69,12 @@ export default () => {
 
    /* const handleModalSave = async () => {
         if(modalTitleField && modalBodyField) {
+            setModalLoading(true);
             const result = await api.updateWall(modalId, {
                 title: modalTitleField,
                 body: modalBodyField
             });
+            setModalLoading(false);
             if(result.error === '') {
                 setShowModal(false);
                 getList();
@@ -145,6 +148,7 @@ export default () => {
                         placeholder="Digite o conteúdo do aviso"
                         value={modalBodyField}
                         onChange={e=>setModalBodyField(e.target.value)}
+                        disabled={modalLoading}
                     />
                 </CFormGroup>
 

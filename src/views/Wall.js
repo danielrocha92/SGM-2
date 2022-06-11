@@ -138,6 +138,7 @@ export default () => {
                         placeholder="Digite um título para o aviso"
                         value={modalTitleField}
                         onChange={e=>setModalTitleField(e.target.value)}
+                        disabled={modalLoading}
                     />
                 </CFormGroup>
 
@@ -157,10 +158,14 @@ export default () => {
                 <CButton 
                     color="primary"
                     onClick={handleModalSave}
-                >Salvar</CButton>
+                    disabled={modalLoading}
+                >
+                    {modalLoading ? 'Carregando...' : 'Salvar'}
+                </CButton>
                 <CButton 
                     color="secondary"
                     onClick={handleCloseModal}
+                    disabled={modalLoading}
                 >Cancelar</CButton>
             </CModalFooter>
         </CModal>

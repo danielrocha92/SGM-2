@@ -7,7 +7,15 @@ import {
     CCardHeader, 
     CCol, 
     CDataTable, 
-    CRow 
+    CFormGroup, 
+    CLabel, 
+    CModal, 
+    CModalBody, 
+    CModalFooter, 
+    CModalHeader, 
+    CRow, 
+    CTextarea,
+    CInput
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 
@@ -18,6 +26,9 @@ export default () => {
 
     //const [loading, setLoading] = useState(true);
     const [list, setList] = useState([]);
+    const [sholModal, setShowModal] = useState(false);
+    const [modalTitleField, setModalTitleField] = useState('');
+    const [modalBodyField, setModalBodyField] = useState('');
 
     const fields = [
         {label: "Título", key: 'title'},
@@ -42,7 +53,16 @@ export default () => {
         }
     }*/
     
+    const handleCloseModal = () => {
+        setShowModal(false);
+    }
+
+    const handleEditButton = (index) => {
+        setShowModal(true);
+    }
+
     return(
+        <>
         <CRow>
             <CCol>
                 <h2>Mural de Avisos</h2>
@@ -67,7 +87,7 @@ export default () => {
                                 'actions': (item, index) => (
                                     <td>
                                         <CButtonGroup>
-                                            <CButton color="info">Editar</CButton>
+                                            <CButton color="info" onClick={()=>handleEditButton(index)}>Editar</CButton>
                                             <CButton color="danger">Excluir</CButton>
                                             </CButtonGroup>
                                     </td>
@@ -80,5 +100,39 @@ export default () => {
                 </CCard>
             </CCol>
         </CRow>
+
+        <CModal show={sholModal} onClose={handleCloseModal}>
+            <CModalHeader closeButton>Editar Aviso</CModalHeader>
+            <CModalBody>
+
+                <CFormGroup>
+                    <CLabel htmlFor="modal-title">Título do aviso</CLabel>
+                    <CInput 
+                        type="text"
+                        id="modal-title"
+                        placeholder="Digite um título para o aviso"
+                        value={modalTitleField}
+                        onChange={e=>setModalTitleField(e.target.value)}
+                    />
+                </CFormGroup>
+
+                <CFormGroup>
+                    <CLabel htmlFor="modal-title">Corpo do aviso</CLabel>
+                    <CTextarea 
+                        id="modal-body"
+                        placeholder="Digite o conteúdo do aviso"
+                        value={modalBodyField}
+                        onChange={e=>setModalBodyField(e.target.value)}
+                    />
+                </CFormGroup>
+
+            </CModalBody>
+            <CModalFooter>
+                <CButton color="primary">Salvar</CButton>
+                <CButton color="secondary">Cancelar</CButton>
+            </CModalFooter>
+        </CModal>
+
+        </>
     );
 }

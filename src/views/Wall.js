@@ -18,6 +18,7 @@ import {
     CInput
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
+import { applyMiddleware } from 'redux';
 
 //import useApi from '../services/api';
 
@@ -29,6 +30,7 @@ export default () => {
     const [sholModal, setShowModal] = useState(false);
     const [modalTitleField, setModalTitleField] = useState('');
     const [modalBodyField, setModalBodyField] = useState('');
+    const [modalId, setModalId] = useState();
 
     const fields = [
         {label: "Título", key: 'title'},
@@ -58,8 +60,28 @@ export default () => {
     }
 
     const handleEditButton = (index) => {
+        setModalId(list[index]['id']);
+        setModalTitleField(list[index]['title']);
+        setModalBodyField(list[index]['body']);
         setShowModal(true);
     }
+
+   /* const handleModalSave = async () => {
+        if(modalTitleField && modalBodyField) {
+            const result = await api.updateWall(modalId, {
+                title: modalTitleField,
+                body: modalBodyField
+            });
+            if(result.error === '') {
+                setShowModal(false);
+                getList();
+            } else {
+                alert(result.error);
+            }
+        } else {
+            alert('Preencha os campos!');
+        }
+    }*/
 
     return(
         <>
@@ -128,8 +150,14 @@ export default () => {
 
             </CModalBody>
             <CModalFooter>
-                <CButton color="primary">Salvar</CButton>
-                <CButton color="secondary">Cancelar</CButton>
+                <CButton 
+                    color="primary"
+                    onClick={handleModalSave}
+                >Salvar</CButton>
+                <CButton 
+                    color="secondary"
+                    onClick={handleCloseModal}
+                >Cancelar</CButton>
             </CModalFooter>
         </CModal>
 

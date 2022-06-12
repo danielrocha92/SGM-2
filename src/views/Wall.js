@@ -21,12 +21,12 @@ import CIcon from '@coreui/icons-react';
 import { applyMiddleWare } from 'redux';
 import api from 'src/services/api';
 
-//import useApi from '../services/api';
+import useApi from '../services/api';
 
 export default () => {
-    //const api = useApi();
+    const api = useApi();
 
-    //const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [list, setList] = useState([]);
     const [sholModal, setShowModal] = useState(false);
     const [modalLoading, setModalLoading] = useState(false);
@@ -38,24 +38,22 @@ export default () => {
         {label: "Título", key: 'title'},
         {label: "Data de criação", key: 'datecreated', _style:{width:'200px'}},
         {label: "Ações", key: 'actions', _style:{width:'1px'}}
-
     ]
 
-
-    /*useEffect(() => {
+    useEffect(() => {
         getList();
     }), [];
 
     const getList = async () => {
         setLoading(true);
-        const result = await api;getwall();
+        const result = await api.getwall();
         setLoading(false);
         if(result.erro === '') {
             setList(result.list);
         } else {
             alert(result.error);
         }
-    }*/
+    }
     
     const handleCloseModal = () => {
         setShowModal(false);
@@ -86,7 +84,7 @@ export default () => {
         setShowModal(true);
     }
 
-   /* const handleModalSave = async () => {
+    const handleModalSave = async () => {
         if(modalTitleField && modalBodyField) {
             setModalLoading(true);
             let result;
@@ -110,7 +108,7 @@ export default () => {
         } else {
             alert('Preencha os campos!');
         }
-    }*/
+    }
 
     return(
         <>
@@ -128,7 +126,7 @@ export default () => {
                         <CDataTable 
                             items={list}
                             fields={fields} 
-                            //loading={loading}
+                            loading={loading}
                             noItemsViewSlot=" "
                             hover
                             bordered
@@ -140,20 +138,18 @@ export default () => {
                                         <CButtonGroup>
                                             <CButton color="info" onClick={()=>handleEditButton(index)}>Editar</CButton>
                                             <CButton color="danger" onClick={()=>handleRemoveButton(index)}>Excluir</CButton>
-                                            </CButtonGroup>
+                                        </CButtonGroup>
                                     </td>
                                 )
                             }}
                         />
-                        
-                        ...
                     </CCardBody>
                 </CCard>
             </CCol>
         </CRow>
 
         <CModal show={sholModal} onClose={handleCloseModal}>
-            <CModalHeader closeButton>{modalId===''?'Novo' : 'Editar'} Aviso</CModalHeader>
+            <CModalHeader closeButton>{modalId ===''?'Novo' : 'Editar'} Aviso</CModalHeader>
             <CModalBody>
 
                 <CFormGroup>

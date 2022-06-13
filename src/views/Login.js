@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-//import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 import {
-  //CAlert,
+  CAlert,
   CButton,
   CCard,
   CCardBody,
@@ -18,23 +18,23 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
-//import useApi from ...
+import useApi from '../services/api'
 
 const Login = () => {
-  //const api = useApi();
-  //const history = useHistory();
+  const api = useApi();
+  const history = useHistory();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  //const [error, setError] = useState('');
-  //const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  /*const handleLoginButton = async () => {
+  const handleLoginButton = async () => {
     if(email && password) {
       setLoading(true);
       const result = await api.login(email, password);
       setLoading(false);
-      if(result.erro === ') {
+      if(result.error === '') {
         localStorage.setItem('token', result.token);
         history.push('/');
       } else {
@@ -43,7 +43,7 @@ const Login = () => {
     } else {
       setError("Digite os dados");
     }
-  }*/
+  }
 
   return (
     <div className="c-app c-default-layout flex-row align-items-center">
@@ -57,7 +57,7 @@ const Login = () => {
                     <h1>Login</h1>
                     <p className="text-muted">Digite seus dados de acesso</p>
 
-                    {/*error !== '' && <CAlert color="danger">{error}</CAlert>*/}
+                    {error !== '' && <CAlert color="danger">{error}</CAlert>}
 
                     <CInputGroup className="mb-3">
                       <CInputGroupPrepend>
@@ -86,7 +86,7 @@ const Login = () => {
                         autoComplete="current-password" 
                         value={password} 
                         onChange={e=>setPassword(e.target.value)} 
-                        //disabled={loading}
+                        disabled={loading}
                       />
                     </CInputGroup>
 
@@ -95,10 +95,10 @@ const Login = () => {
                         <CButton 
                           color="primary" 
                           className="px-4"
-                          //onClick={handleLoginButton}
-                          //dibled={loading}
+                          onClick={handleLoginButton}
+                          disabled={loading}
                         >
-                          {/*looading ? 'Carregando' : 'Entrar'*/}Entrar
+                          {loading ? 'Carregando' : 'Entrar'}
                         </CButton>
                       </CCol>
                     </CRow>

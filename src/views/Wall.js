@@ -18,8 +18,6 @@ import {
     CInput
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
-import { applyMiddleWare } from 'redux';
-import api from 'src/services/api';
 
 import useApi from '../services/api';
 
@@ -42,11 +40,11 @@ export default () => {
 
     useEffect(() => {
         getList();
-    }), [];
+    }, []);
 
     const getList = async () => {
         setLoading(true);
-        const result = await api.getwall();
+        const result = await api.getWall();
         setLoading(false);
         if(result.erro === '') {
             setList(result.list);
@@ -95,7 +93,7 @@ export default () => {
             if(modalId === '') {
                 result = await api.addWall(data);
             } else {
-                result = await api.updateWall(modalId, data); 
+                result = await api.upDateWall(modalId, data); 
             }
 
             setModalLoading(false);

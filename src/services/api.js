@@ -72,6 +72,12 @@ export default () => {
           let token = localStorage.getItem('token');
           let json = await request('delet', `/wall/${id}`, {}, token);
           return json;
-        }
+        },
+
+        getMedicines: async () => {
+          let token = localStorage.getItem('token');
+          let json = await request('get', '/medics', {}, token);
+          return json;
+        },
     };
 }

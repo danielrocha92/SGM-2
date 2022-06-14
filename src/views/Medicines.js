@@ -15,7 +15,8 @@ import {
     CModalHeader, 
     CRow, 
     CTextarea,
-    CInput
+    CInput,
+    CForm
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 
@@ -159,86 +160,75 @@ export default () => {
         </CRow>
 
         <CModal show={sholModal} onClose={handleCloseModal}>
-            <CModalHeader closeButton>{modalId ===''?'Novo' : 'Editar'} Medicamento</CModalHeader>
+            <CModalHeader closeButton>{modalId ===''?'Novo' : 'Editar'} Medicamentos</CModalHeader>
             <CModalBody>
 
                 <CFormGroup>
-                    <CLabel htmlFor="modal-title">Título do Medicamento</CLabel>
-                    <CInput 
-                        type="text"
-                        id="modal-title"
-                        placeholder="Digite o nome do Medicamento"
-                        value={modalTitleField}
-                        onChange={e=>setModalTitleField(e.target.value)}
-                        disabled={modalLoading}
-                    />
+                    <CLabel htmlFor="modal-title">Corpo do Modal</CLabel>
 
                     <CInput 
                         type="text"
-                        id="modal-title"
+                        id="modal-body"
                         placeholder="Digite o Laboratório"
                         value={modalTitleField}
-                        onChange={e=>setModalTitleField(e.target.value)}
+                        onChange={e=>setModalBodyField(e.target.value)}
                         disabled={modalLoading}
                     />
 
                     <CInput 
                         type="text"
-                        id="modal-title"
+                        id="modal-body"
                         placeholder="Digite a Classe Terapêutica"
                         value={modalTitleField}
-                        onChange={e=>setModalTitleField(e.target.value)}
+                        onChange={e=>setModalBodyField(e.target.value)}
                         disabled={modalLoading}
                     />
 
                     <CInput 
                         type="text"
-                        id="modal-title"
+                        id="modal-body"
                         placeholder="Digite a Substância Ativa"
                         value={modalTitleField}
-                        onChange={e=>setModalTitleField(e.target.value)}
+                        onChange={e=>setModalBodyField(e.target.value)}
                         disabled={modalLoading}
                     />
 
                     <CInput 
                         type="text"
-                        id="modal-title"
+                        id="modal-body"
                         placeholder="Digite a Unidade"
                         value={modalTitleField}
-                        onChange={e=>setModalTitleField(e.target.value)}
+                        onChange={e=>setModalBodyField(e.target.value)}
                         disabled={modalLoading}
                     />
 
                     <CInput 
                         type="text"
-                        id="modal-title"
+                        id="modal-body"
                         placeholder="Digite o Lote"
                         value={modalTitleField}
-                        onChange={e=>setModalTitleField(e.target.value)}
+                        onChange={e=>setModalBodyField(e.target.value)}
                         disabled={modalLoading}
                     />
 
                     <CInput 
                         type="text"
-                        id="modal-title"
+                        id="modal-body"
                         placeholder="Digite a Quantidade"
                         value={modalTitleField}
-                        onChange={e=>setModalTitleField(e.target.value)}
+                        onChange={e=>setModalBodyField(e.target.value)}
                         disabled={modalLoading}
                     />
 
                     <CInput 
                         type="text"
-                        id="modal-title"
+                        id="modal-body"
                         placeholder="Digite a Validade"
                         value={modalTitleField}
-                        onChange={e=>setModalTitleField(e.target.value)}
+                        onChange={e=>setModalBodyField(e.target.value)}
                         disabled={modalLoading}
                     />
-                </CFormGroup>
 
-                <CFormGroup>
-                    <CLabel htmlFor="modal-title">Corpo do aviso</CLabel>
                     <CTextarea 
                         id="modal-body"
                         placeholder="Digite o conteúdo do aviso"
@@ -246,9 +236,21 @@ export default () => {
                         onChange={e=>setModalBodyField(e.target.value)}
                         disabled={modalLoading}
                     />
+
+                <CFormGroup>
+                    <CLabel htmlFor="modal-file">Arquivo (pdf)</CLabel>
+                    <CInput 
+                        type="file"
+                        id="modal-file"
+                        name="file"
+                        placeholder='Escolha um arquivo'
+                        onChange={e=>setModalFileField(e.target.files[0])}
+                    />
                 </CFormGroup>
 
+                </CFormGroup>
             </CModalBody>
+
             <CModalFooter>
                 <CButton 
                     color="primary"
@@ -257,12 +259,14 @@ export default () => {
                 >
                     {modalLoading ? 'Carregando...' : 'Salvar'}
                 </CButton>
+
                 <CButton 
                     color="secondary"
                     onClick={handleCloseModal}
                     disabled={modalLoading}
                 >Cancelar</CButton>
             </CModalFooter>
+
         </CModal>
 
         </>

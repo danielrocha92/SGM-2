@@ -19,7 +19,7 @@ import {
 } from '@coreui/react';
 import CIcon from '@coreui/icons-react';
 
-import useApi from '../../../services/api';
+import useApi from '../services/api';
 
 export default () => {
     const api = useApi();
@@ -37,10 +37,9 @@ export default () => {
         {label: "Laboratório", key: 'laboratory', _style:{width:'200px'}},
         {label: "Classe Terapêutica", key: 'therapeuticclass', _style:{width:'200px'}},
         {label: "Substância Ativa", key: 'activesubstance', _style:{width:'200px'}},
-        {label: "Quantidade Comprada", key: 'purchasedquantity', _style:{width:'1px'}},
-        {label: "Quantidade Restante", key: 'remainingquantity', _style:{width:'1px'}},
+        {label: "Quantidade", key: 'quantity',_style:{width:'200px'}},
         {label: "Data de validade", key: 'expirationdate', _style:{width:'200px'}}
-    ]
+    ]   
 
     useEffect(()=>{
         getList();
@@ -48,7 +47,7 @@ export default () => {
 
     const getList = async () => {
         setLoading(true);
-        const result = await api.getDocuments();
+        const result = await api.getMedicines();
         setLoading(false);
         if(result.erro === '') {
             setList(result.list);
@@ -112,16 +111,24 @@ export default () => {
         }
     }
 
+    const handleDownloadButton = (index) => {
+        window.open(list[index]['fileurl']);
+    }
+
     return(
         <>
         <CRow>
             <CCol>
-                <h2>Mural de Avisos</h2>
+                <h2>Medicamentos</h2>   
 
                 <CCard>
                     <CCardHeader>
                         <CButton color="primary" onClick={handleNewButton}>
-                            <CIcon name="cil-check" /> Novo Aviso
+                            <CIcon name="cil-check" />Novo Medicamentos
+                        </CButton>
+
+                        <CButton color="success" onClick={()=>handleDownloadButton(index)}>
+                            <CIcon name="cil-cloud-download" />
                         </CButton>
                     </CCardHeader>
                     <CCardBody>

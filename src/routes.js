@@ -5,7 +5,7 @@ const Logout = React.lazy(() => import('./views/Logout'));
 const Wall = React.lazy(() => import('./views/Wall'));
 
 //Rotas Medicamentos
-const Medicines = React.lazy(() => import('./views/medicines/medicines/Medicines'));
+const Medicines = React.lazy(() => import('./views/Medicines'));
 const MedicinesAdd = React.lazy(() => import('./views/medicines/medicines-add/MedicinesAdd'));
 const MedicinesDiscard = React.lazy(() => import('./views/medicines/medicines-discard/MedicinesDiscard'));
 const MedicinesEdit = React.lazy(() => import('./views/medicines/medicines-edit/MedicinesEdit'));

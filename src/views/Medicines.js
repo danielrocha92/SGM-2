@@ -123,8 +123,9 @@ export default () => {
 
                 <CCard>
                     <CCardHeader>
+
                         <CButton color="primary" onClick={handleNewButton}>
-                            <CIcon name="cil-check" />Novo Medicamentos
+                            <CIcon name="cil-check" />Novo Medicamento
                         </CButton>
 
                         <CButton color="success" onClick={()=>handleDownloadButton(index)}>
@@ -158,15 +159,78 @@ export default () => {
         </CRow>
 
         <CModal show={sholModal} onClose={handleCloseModal}>
-            <CModalHeader closeButton>{modalId ===''?'Novo' : 'Editar'} Aviso</CModalHeader>
+            <CModalHeader closeButton>{modalId ===''?'Novo' : 'Editar'} Medicamento</CModalHeader>
             <CModalBody>
 
                 <CFormGroup>
-                    <CLabel htmlFor="modal-title">Título do aviso</CLabel>
+                    <CLabel htmlFor="modal-title">Título do Medicamento</CLabel>
                     <CInput 
                         type="text"
                         id="modal-title"
-                        placeholder="Digite um título para o aviso"
+                        placeholder="Digite o nome do Medicamento"
+                        value={modalTitleField}
+                        onChange={e=>setModalTitleField(e.target.value)}
+                        disabled={modalLoading}
+                    />
+
+                    <CInput 
+                        type="text"
+                        id="modal-title"
+                        placeholder="Digite o Laboratório"
+                        value={modalTitleField}
+                        onChange={e=>setModalTitleField(e.target.value)}
+                        disabled={modalLoading}
+                    />
+
+                    <CInput 
+                        type="text"
+                        id="modal-title"
+                        placeholder="Digite a Classe Terapêutica"
+                        value={modalTitleField}
+                        onChange={e=>setModalTitleField(e.target.value)}
+                        disabled={modalLoading}
+                    />
+
+                    <CInput 
+                        type="text"
+                        id="modal-title"
+                        placeholder="Digite a Substância Ativa"
+                        value={modalTitleField}
+                        onChange={e=>setModalTitleField(e.target.value)}
+                        disabled={modalLoading}
+                    />
+
+                    <CInput 
+                        type="text"
+                        id="modal-title"
+                        placeholder="Digite a Unidade"
+                        value={modalTitleField}
+                        onChange={e=>setModalTitleField(e.target.value)}
+                        disabled={modalLoading}
+                    />
+
+                    <CInput 
+                        type="text"
+                        id="modal-title"
+                        placeholder="Digite o Lote"
+                        value={modalTitleField}
+                        onChange={e=>setModalTitleField(e.target.value)}
+                        disabled={modalLoading}
+                    />
+
+                    <CInput 
+                        type="text"
+                        id="modal-title"
+                        placeholder="Digite a Quantidade"
+                        value={modalTitleField}
+                        onChange={e=>setModalTitleField(e.target.value)}
+                        disabled={modalLoading}
+                    />
+
+                    <CInput 
+                        type="text"
+                        id="modal-title"
+                        placeholder="Digite a Validade"
                         value={modalTitleField}
                         onChange={e=>setModalTitleField(e.target.value)}
                         disabled={modalLoading}

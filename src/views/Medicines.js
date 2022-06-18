@@ -95,9 +95,9 @@ export default () => {
                 body: modalBodyField
             };
             if(modalId === '') {
-                result = await api.addWall(data);
+                result = await api.addMedicines(data);
             } else {
-                result = await api.updateWall(modalId, data); 
+                result = await api.updateMedicines(modalId, data); 
             }
 
             setModalLoading(false);

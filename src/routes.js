@@ -10,6 +10,12 @@ const MedicinesAdd = React.lazy(() => import('./views/medicines/medicines-add/Me
 const MedicinesDiscard = React.lazy(() => import('./views/medicines/medicines-discard/MedicinesDiscard'));
 const MedicinesEdit = React.lazy(() => import('./views/medicines/medicines-edit/MedicinesEdit'));
 
+//Rotas Reservations
+const Reservations = React.lazy(() => import('./views/Reservations'));
+
+
+
+
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
@@ -22,6 +28,9 @@ const routes = [
   { path: '/medicines/medicines-add', name: 'MedicinesAdd', component: MedicinesAdd },
   { path: '/medicines/medicines-discard', name: 'MedicinesDiscard', component: MedicinesDiscard },
   { path: '/medicines/medicines-edit', name: 'MedicinesEdit', component: MedicinesEdit },
+
+  //Rotas Reservations
+  { path: '/reservations', name: 'Reservations', component: Reservations },
 ];
 
 export default routes;

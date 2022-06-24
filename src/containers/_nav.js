@@ -29,7 +29,7 @@ const _nav =  [
     _tag: 'CSidebarNavDropdown',
     name: 'Medicamentos',
     route: '/medicines',
-    icon: 'MdOutlineMedicalServices',
+    icon: 'cil-plus',
     _children: [
       {
         _tag: 'CSidebarNavItem',
@@ -52,6 +52,12 @@ const _nav =  [
         to: '/medicines/medicines-discard',
       },
     ],
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'Vencimentos',
+    to: '/validity',
+    icon: 'cil-calendar',
   },
 ]
 

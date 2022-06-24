@@ -118,6 +118,11 @@ export default () => {
           let token = localStorage.getItem('token');
           let json = await request('delete', `/med/${id}`, {}, token);
           return json;
+        },
+        getReservations: async () => {
+          let token = localStorage.getItem('token');
+          let json = await request('get', '/reservations', {}, token);
+          return json;
         }
     };
 }

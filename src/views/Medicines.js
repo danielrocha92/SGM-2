@@ -70,7 +70,7 @@ export default () => {
 
     const handleRemoveButton = async (index) => {
         if(window.confirm('Tem certeza que deseja excluir?')) {
-            const result = await api.removeWall(list[index]['id']);
+            const result = await api.removeMedicine(list[index]['id']);
             if(result.error === '') {
                 getList();
             } else {

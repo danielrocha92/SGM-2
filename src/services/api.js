@@ -112,6 +112,12 @@ export default () => {
            });
            let json = await req.json();
            return json;
+        },
+
+        removeMedicine: async (id) => {
+          let token = localStorage.getItem('token');
+          let json = await request('delete', `/med/${id}`, {}, token);
+          return json;
         }
     };
 }
